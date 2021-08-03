@@ -1,6 +1,6 @@
 import { addFilter } from "@wordpress/hooks";
 import { Fragment } from "@wordpress/element";
-import { RichText } from "@wordpress/blocks";
+import { RichText } from "@wordpress/editor";
 
 // Hook function to add a caption to the core code block
 const addCaptionToCodeBlock = settings => {

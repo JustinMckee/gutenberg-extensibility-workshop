@@ -4,8 +4,8 @@ import "./style.scss";
 import { registerBlockType } from "@wordpress/blocks";
 import { PlainText } from "@wordpress/editor";
 
-// Higher Order Component used to generate unique id per component instance
-import { withInstanceId } from "@wordpress/components";
+// // Higher Order Component used to generate unique id per component instance
+// import { withInstanceId } from "@wordpress/components";
 
 registerBlockType("gew/meta-block", {
   title: "05 - Meta Block",
@@ -20,23 +20,20 @@ registerBlockType("gew/meta-block", {
     }
   },
 
-  edit: withInstanceId(
-    ({ className, attributes, setAttributes, instanceId }) => {
+  edit({ className, attributes, setAttributes }) {
       const { description } = attributes;
       const updateDescription = description => setAttributes({ description });
 
       return (
         <div className={className}>
-          <label htmlFor={instanceId}>Short Description</label>
+          <label>Short Description</label>
           <PlainText
-            id={instanceId}
             value={description}
             onChange={updateDescription}
           />
         </div>
       );
-    }
-  ),
+    },
 
   // In general meta blocks don't render anything
   // But it's up to the block author really.
